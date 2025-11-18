@@ -1,15 +1,17 @@
+import java.util.Scanner;
+
 public class Roshambo {
-    private static boolean rockCheck(String pick){
+    public static boolean rockCheck(String pick){
         String small = pick.toLowerCase();
         return small.indexOf("r") == 0;
     }
 
-    private static boolean paperCheck(String pick){
+    public static boolean paperCheck(String pick){
         String small = pick.toLowerCase();
         return small.indexOf("p") == 0;
     }
 
-    private static boolean scissorsCheck(String pick){
+    public static boolean scissorsCheck(String pick){
         String small = pick.toLowerCase();
         return small.indexOf("s") == 0;
     }
@@ -26,5 +28,36 @@ public class Roshambo {
             result = "scissors";
         }
         return result;
+    }
+    public static String cheat(String ans){
+        String result = "";
+        if (ans == "rock"){
+            result = "paper";
+        }
+        if (ans == "paper"){
+            result = "scissors";
+        }
+        if (ans == "scissors"){
+            result = "rock";
+        }
+        return result;
+    }
+    public static void unfairGame(){
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Your Move: ");
+        String move = scan.nextLine();
+        String moveReal = Roshambo.check(move);
+        String cheatMove = Roshambo.cheat(moveReal);
+        System.out.println("I said..." + cheatMove);
+        System.out.println(cheatMove + " beats " + moveReal);
+        System.out.println("I win! Let's go again!");
+        while (Roshambo.rockCheck(moveReal) || Roshambo.paperCheck(moveReal) || Roshambo.scissorsCheck(moveReal)) {
+            System.out.print("(Your Move): ");
+            move = scan.nextLine();
+            moveReal = Roshambo.check(move);
+            System.out.println("I said..." + cheatMove);
+            System.out.println(cheatMove + " beats " + moveReal);
+            System.out.println("I win! Let's go again!");
+        }
     }
 }
