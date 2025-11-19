@@ -102,13 +102,21 @@ public class Roshambo {
         System.out.println("Best 2 out of 3? or \nBest 3 out of 5?");
         System.out.print("Type \"1\" for the first option and \"2\" for the second option.");
         int selection = scan.nextInt();
-        if (selection == 1){ // 2:3 RPS game
+        if (selection == 1) { // 2:3 RPS game
             int myScore = 0;
             int yourScore = 0;
-            String myPick = Roshambo.computerPick((int)((Math.random() * 2) + 1));
-            System.out.print("Your Move: ");
-            String move = scan.nextLine();
-            String yourPick = Roshambo.check(move);
+            for (int i = 0; (myScore != 2 || yourScore != 2); i++){
+                int random = (int) ((Math.random() * 2) + 1);
+                String myPick = Roshambo.computerPick(random);
+                System.out.print("Your Move: ");
+                String move = scan.nextLine();
+                String yourPick = Roshambo.check(move);
+                if (myPick == yourPick){
+                    System.out.println("Same thing, go again!");
+                } else if (myPick.equals("rock") && yourPick.equals("scissors")){
+                    System.out.println(myPick + " beats " + yourPick + "!");
+                }
+            }
         } else if (selection == 2){ // 3:5 RPS game
 
         }
