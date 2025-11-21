@@ -112,17 +112,25 @@ public class Roshambo {
                 String move = scan.nextLine();
                 String yourPick = Roshambo.check(move);
                 if (Objects.equals(myPick, yourPick)) {
+                    System.out.println("My pick: " + myPick);
                     System.out.println("Same thing, go again!");
                 } else if ((myPick.equals("rock") && yourPick.equals("scissors")) || (myPick.equals("scissors") && yourPick.equals("paper")) || (myPick.equals("paper") && yourPick.equals("rock"))){
+                    System.out.println("My pick: " + myPick);
                     System.out.println(myPick + " beats " + yourPick + "!");
                     myScore++;
                 } else if ((yourPick.equals("rock") && myPick.equals("scissors")) || (yourPick.equals("scissors") && myPick.equals("paper")) || (yourPick.equals("paper") && myPick.equals("rock"))) {
+                    System.out.println("My pick: " + myPick);
                     System.out.println(yourPick + " beats " + myPick + "!");
                     yourScore++;
                 } else{
                     System.out.println("Please enter a valid playing option");
                 }
                 System.out.println("Me: " + myScore + " You: " + yourScore);
+            }
+            if (myScore == 2){
+                System.out.println("I won! Good game!");
+            } else {
+                System.out.println("You won! Good game!");
             }
         } else if (selection == 2){ // 3:5 RPS game
             int myScore = 0;
@@ -134,17 +142,25 @@ public class Roshambo {
                 String move = scan.nextLine();
                 String yourPick = Roshambo.check(move);
                 if (Objects.equals(myPick, yourPick)) {
+                    System.out.println("My pick: " + myPick);
                     System.out.println("Same thing, go again!");
                 } else if ((myPick.equals("rock") && yourPick.equals("scissors")) || (myPick.equals("scissors") && yourPick.equals("paper")) || (myPick.equals("paper") && yourPick.equals("rock"))){
+                    System.out.println("My pick: " + myPick);
                     System.out.println(myPick + " beats " + yourPick + "!");
                     myScore++;
                 } else if ((yourPick.equals("rock") && myPick.equals("scissors")) || (yourPick.equals("scissors") && myPick.equals("paper")) || (yourPick.equals("paper") && myPick.equals("rock"))) {
+                    System.out.println("My pick: " + myPick);
                     System.out.println(yourPick + " beats " + myPick + "!");
                     yourScore++;
                 } else{
                     System.out.println("Please enter a valid playing option");
                 }
                 System.out.println("Me: " + myScore + " You: " + yourScore);
+            }
+            if (myScore == 3){
+                System.out.println("I won! Good game!");
+            } else {
+                System.out.println("You won! Good game!");
             }
         }
     }
