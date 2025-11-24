@@ -11,6 +11,7 @@ public class Main {
         if (Roshambo.yesCheck(request)) {
             Roshambo.fairGame();
         }
+        System.out.println();
         System.out.println("Goodbye! I had fun!");
     }
 }
